@@ -6,41 +6,41 @@ import { ShoppingKart } from './shoppingkarts'
 
 const FormBody = (props) => {
     return (
-        <div style={{ padding: "0px", margin: "0px", border: "solid red 1px" }}>
-            <div className="row t">
-                <div className="xxx col s5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1">
+        <div style={{ padding: "0px", margin: "0px"}}>
+            <div className="row">
+                <div className="col s12 m12 l12">
                     <span><p> Please enter contact details</p></span>
                 </div>
             </div>
-            <div className="row t">
-                <div className="xxx input col s5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1">
+            <div className="row">
+                <div className="input col s12 m12 l12">
                     <div>
                         <label className="active">FirstName</label>
                         <input style={{ paddingBottom: "0px", marginBottom: "0px" }} id="first_name2" type="text" className="validate" />
                     </div>
                 </div>
             </div>
-            <div className="row t">
-                <div className="xxx input col s5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1">
+            <div className="row">
+                <div className="input col s12 m12 l12">
                     <label className="active">LastName</label>
                     <input id="first_name2" type="text" className="validate" />
                 </div>
             </div>
-            <div className="row t">
-                <div className="xxx input col s5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1">
+            <div className="row">
+                <div className="input col s12 m12 l12">
                     <label className="active">City</label>
                     <input id="first_name2" type="text" className="validate" />
                 </div>
             </div>
-            <div className="row t">
-                <div className="xxx input col s5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1">
+            <div className="row">
+                <div className="input col s12 m12 l12">
                     <label className="active">PhoneNo.</label>
                     <input id="phone" type="number" className="validate" />
                 </div>
             </div>
-            <div className="row t">
-                <div className="xxx input col s5 push-s1 push-m1 push l1 m5 push-s1 push-m1 push l1 l5 push-s1 push-m1 push l1">
-                    <input type="submit" style={{ position: "relative", left: "5 push-s1 push-m1 push l10%" }} value="Submit" />
+            <div className="row">
+                <div className="input col s12 m12 l12">
+                    <input type="submit" style={{ position: "relative", left: "12 push-s1 push-m1 push l10%" }} value="Submit" />
                 </div>
             </div>
         </div>
@@ -53,10 +53,10 @@ export class Form extends React.Component {
     }
     render() {
         return (
-            <div className="container">
+          
             <div className="row">
-                <div style={{ border: "solid black 1px" }} className="col s7 m7 l7">
-                    <div>
+                <div className="col s7 m7 l7" style={{padding:"0px"}}>
+                    <div style={{boxSizing:"border-box",padding:"20px"}}>
                         <FormBody/>
                     </div>
                 </div>
@@ -66,7 +66,7 @@ export class Form extends React.Component {
                     </ContextConsumer>
                 </div>
             </div>
-            </div>
+        
         )
     }
 }
