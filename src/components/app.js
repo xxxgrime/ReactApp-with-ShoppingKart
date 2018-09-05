@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Navbar } from './navbar.js'
-import { Foot } from './pricebox.js'
 import { Listofitems } from './itemlist'
 import { ShoppingKart } from './shoppingkarts'
 import { data } from './data'
