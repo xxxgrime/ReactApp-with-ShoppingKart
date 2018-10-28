@@ -1,0 +1,97 @@
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+label{
+    font-size: .9em;
+    color:black!important;
+}
+input{
+    background-color:white!important;
+}
+ button:focus{outline:none;color:white!important;background-color:""!important;}
+.col {
+  
+    padding:0px!important;
+}
+@media (max-width: 590px) {
+    .ShoppingKart{
+        display:none;
+    }
+      .innerlol{
+      padding-bottom:8%!important;
+  }
+  .Mob{
+      display:block!important;
+  }
+  .submit{
+      left:40%!important;
+  }
+  
+}
+
+a{
+    color:white!important;
+}
+
+/*button cssss*/
+xbutton{
+    color:black!important;
+    transition:0.5s;
+}
+
+.xbutton:active{
+transform:translate(0px,1px);
+color:black!important;
+}
+.xbutton:focus{
+    color:black!important;
+}
+
+
+.addblock{
+     background-color:white!important;
+ 
+    transition:0.1;
+
+}
+
+
+.addblock:focus{    
+    background-color:white!important;
+    color:black!important;  
+  
+}
+
+.collection{
+    transition:.3s ease-out;
+}
+.collection-x:hover{
+    border-bottom:solid black 4px;
+}
+.collection-x:active{
+   
+  transform:translate(0px,2px)
+}
+.collection-itemx{
+    color:black!important;
+}
+
+.arrow{
+
+    color:black!important;
+    background-color:white!important;
+}
+.arrow:active{
+
+    transform:translate(0px,2px)
+}
+.inner{
+    width:100px!important;
+    background-color:black!important;
+}

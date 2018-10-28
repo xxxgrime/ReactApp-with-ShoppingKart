@@ -1,24 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter as Router,Link} from 'react-router-dom' 
-import Route from 'react-router-dom/Route'
-import {Form} from './form'
-import {AppWrapper} from'./app.js'
+import { Link } from 'react-router-dom'
 
 
-export const Navbar=()=>{
+export const Navbar = (props) => {
   return (
-  
-      <nav style={{ backgroundColor: "red" }}>
+    <div>
+      <nav style={{ backgroundColor: "black" }}>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo ">Logo</a>
+          <Link to="/" exact="true" className="brand-logo "><span>Q_Q</span></Link>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><a href="/">Reset</a></li>
+            
+          </ul>
           <div>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><Link to="/" exact="true">Home</Link></li>
-              <li><Link to="/checkout" exact="true">SignUp/SignIn</Link></li>
             </ul>
           </div>
         </div>
       </nav>
-  );
+    </div>
+  )
 }
