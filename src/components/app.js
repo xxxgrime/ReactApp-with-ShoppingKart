@@ -9,7 +9,7 @@ import { Mobkart } from './mobkart'
 import { Orderplaced } from './orderplaced'
 
 
-//Router Files
+
 import Route from 'react-router-dom/Route'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -30,32 +30,32 @@ export class AppProvider extends React.Component {
         this.state = ({
             formstatus: false,
             item: x, total: 0,
-                cart: [],
-            page:"arrow_drop_down"
+            cart: [],
+            page: "arrow_drop_down"
         })
         this.cartholder = [];
 
     }
-    Reset(){
-        this.setState({page:"arrow_drop_down"})
+    Reset() {
+        this.setState({ page: "arrow_drop_down" })
     }
     getref() {
         if (this.state.moderef) {
             return [this.state.moderef]
         }
     }
-    changePage(){
-        this.state.page=="arrow_drop_down"?
-        this.setState({
-            page:"arrow_drop_up"
-        }):
-        this.setState({
-            page:"arrow_drop_down"
-        })
+    changePage() {
+        this.state.page == "arrow_drop_down" ?
+            this.setState({
+                page: "arrow_drop_up"
+            }) :
+            this.setState({
+                page: "arrow_drop_down"
+            })
         console.log(this.state)
 
     }
-    setref(ref,mob) {
+    setref(ref, mob) {
         var xxx = new Promise((resolve, reject) => {
 
             this.setState({
@@ -103,7 +103,6 @@ export class AppProvider extends React.Component {
             }
             if (this.state.cart.length != 0) {
                 if (this.cartholder.indexOf(e) == -1) {
-
                     this.cartholder.push(e)
                 }
             }
@@ -112,7 +111,7 @@ export class AppProvider extends React.Component {
             }
             this.setState({
                 formstatus: this.state.formstatus,
-              //  item: x,
+                //  item: x,
                 total: this.state.total += f,
                 cart: this.cartholder
             });
@@ -144,7 +143,7 @@ export class AppProvider extends React.Component {
                 }
             }
             this.setState({
-               // item: x,
+                // item: x,
                 total: this.state.total -= f,
                 cart: this.cartholder
             });
@@ -179,9 +178,9 @@ export class AppProvider extends React.Component {
     render() {
         return (
             <Mycontext.Provider value={{
-                reset:this.Reset.bind(this),
-                page:this.state.page,
-                changePage:this.changePage.bind(this),
+                reset: this.Reset.bind(this),
+                page: this.state.page,
+                changePage: this.changePage.bind(this),
                 setref: this.setref.bind(this),
                 getref: this.getref.bind(this),
                 getFormStatus: this.getFormStatus.bind(this),
@@ -268,32 +267,33 @@ const App = () => {
 export const Main = () => {
 
     return (
-        <div>                <Router>
-            <div>
-                <div className="container">
-                    <div>
-                        <Navbar />
-                        <Switch>
-                            <Route path="/" exact strict render={
-                                () => {
-                                    return (<App />)
-                                }
-                            } />
-                            <Route path="/checkout" exact strict render={
-                                () => {
-                                    return (<Form />)
-                                }} />
-                            <Route path="/orderplaced" exact strict render={
-                                () => {
-                                    return (<ContextConsumer>{({reset,getref }) => <Orderplaced getref={getref} reset={reset} />}</ContextConsumer>)
-                                }
-                            } />
-                        </Switch>
+        <div>
+            <Router>
+                <div>
+                    <div className="container">
+                        <div>
+                            <Navbar />
+                            <Switch>
+                                <Route path="/" exact strict render={
+                                    () => {
+                                        return (<App />)
+                                    }
+                                } />
+                                <Route path="/checkout" exact strict render={
+                                    () => {
+                                        return (<Form />)
+                                    }} />
+                                <Route path="/orderplaced" exact strict render={
+                                    () => {
+                                        return (<ContextConsumer>{({ reset, getref }) => <Orderplaced getref={getref} reset={reset} />}</ContextConsumer>)
+                                    }
+                                } />
+                            </Switch>
+                        </div>
                     </div>
+                    <Mobkart />
                 </div>
-                <Mobkart />
-            </div>
-        </Router>
+            </Router>
         </div>
     )
 }

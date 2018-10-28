@@ -9,7 +9,7 @@ export class Orderplaced extends React.Component{
     }
     componentDidMount(){
     var x=this.props.getref()
-     x.style.bottom == "5000px" ?x.style.bottom = "0px" : x.style.bottom = "5000px"
+    x[0].style.bottom == "5000px" ?x.style.bottom = "0px" : x[0].style.bottom = "5000px"
     this.props.reset();
     }
     render(){
