@@ -112,10 +112,10 @@ class FormBody extends React.Component {
     componentDidMount() {
         M.AutoInit();
         var x = this.props.getref()
-          this.props.reset();
-          x[0].style.bottom == "5000px" ?x[0].style.bottom = "0px" : x[0].style.bottom = "5000px"
-        
- }   
+        this.props.reset();
+        x[0].style.bottom == "5000px" ? x[0].style.bottom = "0px" : x[0].style.bottom = "5000px"
+
+    }
     render() {
         return (
             <div style={{ padding: "0px", margin: "0px" }}>
@@ -215,14 +215,16 @@ export class Form extends React.Component {
 
                 <div className="col m7 l7 s12">
                     <div className="container">
-                        <ContextConsumer>{({
-                            formcomplete, getref,reset
-                             }) =>
-                            <FormBody
-                                reset={reset}
-                                getref={getref}
-                                formcomplete={formcomplete}
-                            />}
+                        <ContextConsumer>{
+                            ({
+                             formcomplete,
+                                getref, reset
+                              }) =>
+                                <FormBody
+                                    reset={reset}
+                                    getref={getref}
+                                    formcomplete={formcomplete}
+                                />}
                         </ContextConsumer>
                     </div>
                 </div>
@@ -238,18 +240,18 @@ export class Form extends React.Component {
                             items,
                             cart,
                             getList,
-                     
+
                                    }) =>
                             <Shoppingkart
-                           
+
                                 cart={cart}
-                               // getList={getList}
+                                // getList={getList}
                                 getFormStatus={getFormStatus}
                                 addItem={addItem}
                                 removeItem={removeItem}
                                 getItemTotal={getItemTotal}
                                 items={items}
-                               // selected={selected}
+                                // selected={selected}
                                 total={total}
                             />}
                     </ContextConsumer>
