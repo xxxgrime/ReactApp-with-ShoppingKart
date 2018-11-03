@@ -4,7 +4,7 @@ import { Addremovebutton } from './addremovebutton'
 import { Link } from 'react-router-dom'
 
 
-export class Listofitems extends React.Component {
+export class Listofitems extends React.PureComponent {
   constructor(props) {
     super(props)
     this.x = this.props.items
