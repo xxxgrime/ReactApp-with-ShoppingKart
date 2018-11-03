@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 
 const Mycontext = React.createContext();
 export var ContextConsumer = Mycontext.Consumer;
-export class AppProvider extends React.Component {
+export class AppProvider extends React.PureComponent {
     constructor(props) {
 
         super(props)
