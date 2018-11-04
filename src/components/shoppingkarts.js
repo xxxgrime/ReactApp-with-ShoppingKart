@@ -11,7 +11,7 @@ export const Shoppingkart = (props) => {
   var status;
   window.innerHeight <= 600 ? status = true : status = false;
   var tracker = [];
-
+  var submit=React.createRef();
   (function () {
     for (var i = 0; i < props.cart.length; i++) {
 
@@ -72,7 +72,7 @@ export const Shoppingkart = (props) => {
               fontSize: "1.4em"
             }}>
            
-              <span style={{ color: "black" }}>Proceed to Checkout</span>
+              <span ref={submit} style={{ color: "black" }}>Proceed to Checkout</span>
            
           </li>
         </ul>
@@ -80,6 +80,7 @@ export const Shoppingkart = (props) => {
       )
     }
     else if (props.getFormStatus() == true && props.total != 0) {
+     
       return (
         <Link to="/orderplaced" exact="true">
         <ul className="collection x collection-x" style={{ borderRadius: "30px", backgroundColor: "white", boxShadow: "3px 4px 10px" }}>
@@ -91,19 +92,22 @@ export const Shoppingkart = (props) => {
               fontSize: "1.4em"
             }}>
             
-              <span style={{ color: "black" }}>Place Your Order</span>
+              <span ref={submit} style={{ color: "black" }}>Place Your Order</span>
         
           </li>
         </ul>
             </Link>
+          
       )
     }
     else {
+    
       return (
-        <p style={{ display: "none" }}></p>
+        <p ref={submit} style={{ display: "none" }}></p>
       )
     }
   }
+
 
   return (
 
@@ -149,6 +153,7 @@ export const Shoppingkart = (props) => {
         </li>
       </ul>
       <Button
+        submitForward={props.submitForward}
         getFormStatus={props.getFormStatus}
         total={props.total}
         page={props.page}

@@ -36,7 +36,19 @@ export class AppProvider extends React.Component {
         this.cartholder = [];
 
     }
-    Reset() {
+
+    submitForward(reference){
+       var xxx =new Promise((resolve,reject)=>{
+           this.state.submit?this.setState({submit:reference}):this.state=this.state;
+       })
+       console.log("submit fowrar")
+       console.log("inside the function submit")
+       console.log(this.state.submit)
+    }
+    getSubmitForward(){
+        return this.state.submit
+    }
+    reset() {
         this.setState({ page: "arrow_drop_down" })
     }
     getref() {
@@ -178,7 +190,9 @@ export class AppProvider extends React.Component {
     render() {
         return (
             <Mycontext.Provider value={{
-                reset: this.Reset.bind(this),
+                getSubmitForward:this.getSubmitForward(),
+                submitForward:this.submitForward.bind(this),
+                reset: this.reset.bind(this),
                 page: this.state.page,
                 changePage: this.changePage.bind(this),
                 setref: this.setref.bind(this),
@@ -220,9 +234,11 @@ const App = () => {
                                 getItemTotal,
                                 items,
                                 getList,
-                                collection
+                                collection,
+                                submitForward
                                        }) =>
                                 <Listofitems
+                             
                                     getref={getref}
                                     collection={collection}
                                     getList={getList}
@@ -244,8 +260,10 @@ const App = () => {
                                 removeItem,
                                 getItemTotal,
                                 total,
-                                items
-                                 }) => <Shoppingkart
+                                items,
+                                submitForward
+                                 }) =><Shoppingkart
+                                        submitForward={submitForward}
                                     getFormStatus={getFormStatus}
                                     cart={cart}
                                     addItem={addItem}

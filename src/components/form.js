@@ -114,7 +114,8 @@ class FormBody extends React.Component {
         var x = this.props.getref()
         this.props.reset();
         x[0].style.bottom == "5000px" ? x[0].style.bottom = "0px" : x[0].style.bottom = "5000px"
-
+        
+        
     }
     render() {
         return (
@@ -240,12 +241,14 @@ export class Form extends React.Component {
                             items,
                             cart,
                             getList,
+                            getSubmitForward
 
                                    }) =>
                             <Shoppingkart
 
                                 cart={cart}
                                 // getList={getList}
+                                getSubmitForward={getSubmitForward}
                                 getFormStatus={getFormStatus}
                                 addItem={addItem}
                                 removeItem={removeItem}

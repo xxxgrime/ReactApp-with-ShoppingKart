@@ -5,11 +5,12 @@ import { Addremovebutton } from './addremovebutton'
 import { Shoppingkart } from './shoppingkarts'
 import { Link } from 'react-router-dom'
 
+
 const Displaycontent = (props) => {
 
 
     var itemlist = [];
-
+    var x = React.createRef();
     var tracker = [];
     var newList = [];
     var xx;
@@ -26,6 +27,7 @@ const Displaycontent = (props) => {
             }
         }
     })()
+
     for (var i = 0; i < props.cart.length && props.cart.length != 0; i++) {
         itemlist.push(
             <li
@@ -55,8 +57,9 @@ const Displaycontent = (props) => {
     var Button = (props) => {
 
         if (props.cart.length != 0 && (window.location.href == "http://localhost:8080/#!" || window.location.href == "http://localhost:8080/")) {
-            console.log("First name")
+
             return (
+
                 <ul
                     className="collection x"
                     style={{
@@ -74,31 +77,30 @@ const Displaycontent = (props) => {
                             fontSize: "1.4em"
                         }}>
                         <Link to="/checkout" exact="true">
-                            <span style={{ color: "black" }}>Proceed to Checkout</span>
+                            <span ref={x} style={{ color: "black" }}>Proceed to Checkout</span>
                         </Link>
                     </li>
                 </ul>
             )
         }
         else if (props.cart.length != 0 && window.location.href == "http://localhost:8080/checkout" && props.getFormStatus() == true) {
-            console.log("second time ")
             return (
                 <ul className="collection x" style={{ borderRadius: "20px", backgroundColor: "white", boxShadow: "3px 4px 10px" }}>
                     <li
                         className="collection-item"
                         style={{ color: "black", textAlign: "center", fontSize: "1.4em" }}>
                         <Link
-                            to="/orderplaced" exact="true">
-                            <span style={{ color: "black" }}>Place Your Order</span>
+                            ref={props.submitBinder}
+                            to="/orderplaced"
+                            exact="true">
+                            <span ref={x} style={{ color: "black" }}>Place Your Order</span>
                         </Link>
                     </li>
                 </ul>
             )
         }
         else {
-            console.log("why")
-            console.log(props.cart.length)
-            console.log(window.location.href)
+
             return (
 
                 <p style={{ display: "none" }}></p>
@@ -127,8 +129,6 @@ const Displaycontent = (props) => {
             </div>
             <div> <Button getFormStatus={props.getFormStatus} cart={props.cart} /></div>
             <br />
-
-
         </div>
     )
 }
@@ -142,25 +142,28 @@ class DisplayBox extends React.Component {
         this.statusWidth = window.innerWidth;
         var tracker = [];
         this.myRefman = React.createRef();
-        this.MobRef= React.createRef()
-        this.state=({display:this.props.page})
+        this.MobRef = React.createRef()
+        this.state = ({ display: this.props.page })
         //this.props.pageup==true?this.myRefman.current.style.top="0px":this.myRefman.current.style.top="5000px"
-          console.log("pagechecker")
+        console.log("pagechecker")
         console.log(this.state.display)
+
     }
 
-    clickhandler(e,f) {
-       
-       console.log("asdad")
-       // this.myRefman.current.style.top == "5000px" ? this.myRefman.current.style.top = "0px" : this.myRefman.current.style.top = null;
+    clickhandler(e, f) {
+
+        console.log("asdad")
+        // this.myRefman.current.style.top == "5000px" ? this.myRefman.current.style.top = "0px" : this.myRefman.current.style.top = null;
         this.myRefman.current.style.bottom == "5000px" ? this.myRefman.current.style.bottom = "0px" : this.myRefman.current.style.bottom = "5000px"
         this.props.changepage()
-       // this.MobRef.current.innerHTML=="arrow_drop_down"?this.setState({display:"arrow_drop_up"}):this.setState({display:"arrow_drop_down"})
+        // this.MobRef.current.innerHTML=="arrow_drop_down"?this.setState({display:"arrow_drop_up"}):this.setState({display:"arrow_drop_down"})
         // this.myRefman.current.style.display === "none" ? this.myRefman.current.style.display = "" : this.myRefman.current.style.display = "none"
     }
     componentDidMount() {
-        this.props.setref(this.myRefman.current,this.MobRef.current)
+        this.props.setref(this.myRefman.current, this.MobRef.current)
+
     }
+
     render() {
         return (
             <div >
@@ -175,9 +178,10 @@ class DisplayBox extends React.Component {
                         height: "100%",
                         background: "white",
                         overflowY: "auto",
-                        bottom:"5000px"
+                        bottom: "5000px"
                     }}>
                     <Displaycontent
+
                         clickhandler={this.clickhandler.bind(this)}
                         getFormStatus={this.props.getFormStatus}
                         addItem={this.props.addItem}
@@ -201,7 +205,7 @@ class DisplayBox extends React.Component {
                         className="col m4 l4 s4 offset-l4 offset-m4 offset-s4"
                         style={{ border: "solid white 2px" }}>
                         <p
-                            onClick={() => { this.clickhandler(this.props.total,this.props.page) }}
+                            onClick={() => { this.clickhandler(this.props.total, this.props.page) }}
                             style={{ textAlign: "center" }}>
                             <i className="material-icons" ref={this.MobRef} style={{ color: "white" }}>{this.props.page}</i>
                         </p>
@@ -210,6 +214,7 @@ class DisplayBox extends React.Component {
             </div>
         )
 
+
     }
 }
 
@@ -217,7 +222,7 @@ class DisplayBox extends React.Component {
 export const Mobkart = (props) => {
     var size = window.innerHeight;
     var size2 = window.innerWidth;
-  
+
     return (
         <div>
             <div className="Mob" style={{ width: "100%", display: "none" }}>
